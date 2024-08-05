@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="light-theme">
+
+    <h1>Search Results</h1>
+    <a href="/"><h3>Search Again</h3></a>
+    <div class="recipes-container">
+        {% for recipe in recipes %}
+        <div class="recipe-card" 
+             onclick="openRecipeCard(this)" 
+             data-title="{{ recipe.Title | escape }}" 
+             data-ingredients="{{ recipe.Ingredients | escape }}"
+             data-instructions="{{ recipe.Instructions | escape }}" 
+             data-image-name="{{ recipe.Image_Name | escape }}">
+            <!-- <img class="recipe-image" src="{{'https://recipe-images-ai-generator.s3.us-east-2.amazonaws.com/' + url_for('static', filename='images/' + (recipe.Image_Name + '.jpg' | default('default_image.jpg', true))) }}" alt="{{ recipe.Title | escape }}"> -->
+            
+            <img class="recipe-image" src="https://recipe-images-ai-generator.s3.us-east-2.amazonaws.com/{{ recipe.Image_Name or 'default_image.jpg' }}.jpg" alt="{{ recipe.Title | escape }}">
+            <div class="recipe-info">
+                <h3 class="recipe-title">{{ recipe.Title }}</h3>
+                <!-- <p class="key-ingredients">Key Ingredients: {{ recipe.KeyIngredients | join(", ") }}</p> -->
+            </div>
+        </div>
+        {% else %}
+        <p>No recipes found.</p>
+        {% endfor %}
+    </div>
+    
+    <a href="/">New search</a>
+    
+    <!-- Recipe Detail Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</body>
+</html>

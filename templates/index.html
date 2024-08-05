@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+    <!-- Theme Toggle -->
+    <!-- <div class="theme-switch">
+        <img src="{{ url_for('static', filename='images/sun-icon.png') }}" id="theme-toggle">
+    </div>
+
+    <title>Recipe Search</title>
+</head>
+<body>
+    <h1>Recipe Search</h1>
+    <form action="/search" method="post">
+        <input type="text" name="ingredients" placeholder="Enter ingredients separated by commas">
+        <button type="submit">Search</button>
+    </form>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Recipe Search</title>
+</head> -->
+<!-- <body class="light-theme"> Default to light theme -->
+    <!-- <div class="theme-switch">
+        <img src="{{ url_for('static', filename='images/sun-icon.png') }}" id="theme-toggle" alt="Toggle Theme">
+    </div>
+
+    <h1>Recipe Search</h1>
+    <form action="/search" method="post">
+        <input type="text" name="ingredients" placeholder="Enter ingredients separated by commas">
+            <button type="submit" class="search-button">Search</button>
+    </form> -->
+    <!-- Your form and content -->
+
+    <!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Recipe Search</title>
+</head>
+<body class="light-theme"> 
+    <!-- <div class="theme-switch">
+        <input type="checkbox" id="theme-slider" class="theme-slider">
+        <label for="theme-slider" class="theme-slider-label">
+            <span class="slider sun-icon">☀️</span> 
+            <span class="slider moon-icon">🌜</span> 
+        </label>
+    </div> -->
+
+    <div class="form-container">
+        <h1>Recipe Search</h1>
+        <form action="/search" method="post" class="search-form">
+            <style>
+                .search-bar::placeholder {
+                    color: lightgrey;
+                    opacity: .8; 
+                }
+            </style>
+            <input type="text" name="ingredients" placeholder="Eggs, Chicken, Avocado..." class="search-bar">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+        <p>Enter Ingredients Seperated By Commas</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

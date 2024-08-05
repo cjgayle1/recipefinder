@@ -1,0 +1,234 @@
+/* Light Theme Variables */
+/* :root {
+    --light-bg-color: #f0f4f3;
+    --light-card-bg-color: #ffffff;
+    --light-text-color: #333; */
+
+    /* Dark Theme Variables */
+    /* --dark-bg-color: #2d2c2d;
+    --dark-card-bg-color: #3c3b3d;
+    --dark-text-color: #ccc;
+} */
+/* 
+body.light-theme {
+    --bg-color: var(--light-bg-color);
+    --card-bg-color: var(--light-card-bg-color);
+    --text-color: var(--light-text-color);
+}
+
+body.dark-theme {
+    --bg-color: var(--dark-bg-color);
+    --card-bg-color: var(--dark-card-bg-color);
+    --text-color: var(--dark-text-color);
+}
+
+.modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0,0.4); }
+.modal-content { background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; }
+.close { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+.close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; } */
+
+
+/* The rest of your CSS goes here, unchanged. */
+
+/* Existing theme and modal styles... */
+
+/* Recipe Card Layout */
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.recipe-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 300px; /* Adjust based on your preference */
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover;
+}
+
+.recipe-info {
+    padding: 15px;
+}
+
+.recipe-title, .key-ingredients, .missing-ingredients {
+    margin-bottom: 10px;
+}
+
+/* Theme Switch */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-slider {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-slider-label {
+    display: block;
+    cursor: pointer;
+    width: 60px; /* Width of the slider */
+    height: 30px; /* Height of the slider */
+    background-color: #ccc;
+    border-radius: 15px;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.sun-icon {
+    left: 5px;
+}
+
+.moon-icon {
+    right: 5px;
+}
+
+.theme-slider:checked + .theme-slider-label .moon-icon {
+    color: #f1c40f;
+}
+
+.theme-slider:checked + .theme-slider-label .sun-icon {
+    color: #2c3e50;
+}
+
+/* Add styles for when the slider is checked to move the icons or change colors */
+
+
+/* Adding a bit of responsiveness */
+@media screen and (max-width: 768px) {
+    .recipes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+/* for index */
+/* Centering the form and increasing the size of the search bar */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use the full height of the viewport */
+    width: 100%;
+    flex-direction: column;
+}
+
+
+.search-bar {
+    padding: 10px 20px;
+    font-size: 16px; /* Larger font size for the input */
+    margin-bottom: 20px; /* Space between the input and the button */
+    width: 50%; /* Make the search bar wider */
+    max-width: 600px; /* But not too wide */
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--card-bg-color); /* Use theme variable for background */
+    color: var(--text-color); /* Use theme variable for text color */
+    border: 1px solid var(--text-color); /* Slightly styled border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.search-button:hover {
+    background-color: var(--text-color); /* Invert colors on hover */
+    color: var(--card-bg-color);
+}
+
+/* Basic Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* more modal */
+
+.modal-content h2, .modal-content h3 {
+    color: var(--text-color);
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-content li {
+    margin-bottom: 5px;
+}
+
+.modal-content p {
+    margin-top: 20px;
+}
+
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
